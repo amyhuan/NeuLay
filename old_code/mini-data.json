@@ -1,0 +1,1 @@
+{"directed": false, "multigraph": false, "graph": {}, "nodes": [{"id": "ch2-0100-0001-01sw", "id": "by4-0100-0001-01sw", "id": "gva20-0100-0001-01sw", "id": "icr01.stg31"}], "links": [{"source": "ch2-0100-0001-01sw", "target": "by4-0100-0001-01sw"}, {"source": "gva20-0100-0001-01sw", "target": "icr01.stg31"}]} 

@@ -49,7 +49,8 @@ def read_json_file(filename):
         js_graph = json.load(f)
     return json_graph.node_link_graph(js_graph)
 
-G = read_json_file('./real_data/internet2006_relabeled.json')
+# G = read_json_file('./real_data/internet2006_relabeled.json')
+G = read_json_file('data-pdx-mwh-co.json')
 
 A = nx.to_numpy_matrix(G)
 N = len(A)
@@ -171,7 +172,7 @@ class LayoutLinear(nn.Module):
     
 
 #input, output dimensions
-dim = 3 
+dim = 2
 #x = torch.eye(N) #.to(device)
 x = sp.eye(N)
 x = x.tocoo()
@@ -316,18 +317,18 @@ for i in range(1):
     hist += [loss_history]
     energy_hist += [energy(outputs1).detach().numpy()]
 
-    
+"""    
 d = pd.DataFrame(energy_hist)
-d.to_csv('./internet/internet_energy_neulay.csv', header=True,index=False)
+d.to_csv('./example_energy_neulay.csv', header=True,index=False)
 
 d = pd.DataFrame(time_hist)
-d.to_csv('./internet/internet_time_neulay.csv', header=True,index=False)
+d.to_csv('./example_time_neulay.csv', header=True,index=False)
 
 d = pd.DataFrame(hist)
-d.to_csv('./internet/internet_loss_neulay.csv', header=True,index=False)
-
+d.to_csv('./example_loss_neulay.csv', header=True,index=False)
+"""
 d = pd.DataFrame(outputs1.detach().numpy())
-d.to_csv('./internet/internet_output_neulay.csv', header=True,index=False)
+d.to_csv('./coords-pdx-mwh-co.csv', header=True,index=False)
 
 
 
